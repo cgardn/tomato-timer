@@ -5,6 +5,8 @@ let timerValue = 25*60;
 let sessionValue = 25;
 let breakValue = 5;
 
+let timerID;
+
 document.querySelector("#playButton").addEventListener('click', handlePlay);
 document.querySelector("#resetButton").addEventListener('click', handleReset);
 document.querySelector("#sessionUpButton").addEventListener('click', () => {changeSession(1)});
@@ -17,9 +19,11 @@ function setTimerState(newState) {
   if (timerState == "play") {
     playButton.src = './assets/pause.png';
     playButton.classList.toggle('triPointRight');
+    start_timer();
   } else if (timerState == "pause") {
     playButton.src = './assets/tri.png';
     playButton.classList.toggle('triPointRight');
+    stop_timer();
   }
 }
 
@@ -37,6 +41,7 @@ function handlePlay() {
 
 function handleReset() {
   timerValue = sessionValue * 60;
+  setTimerState("pause");
   updateDisplay();
 }
 
@@ -61,4 +66,20 @@ function updateDisplay() {
 
   // break control
   document.querySelector("#breakSelectorText").innerText = breakValue;
+}
+
+function start_timer() {
+  timerID = setInterval( timer_tick, 1000 );
+}
+
+function stop_timer() {
+  clearInterval(timerID);
+}
+
+function timer_tick() {
+  timerValue -= 1;
+  updateDisplay();
+  if (timerValue <= 0) {
+    stop_timer()
+  }
 }
