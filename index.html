@@ -6,9 +6,24 @@
   <div id="content">
     <div class="centerText" id="title">Tomato Timer</div>
     <div class="centerText" id="clock-face">25:00</div>
-    <div class="centerText" id="play">Play</div>
-    <div class="centerText" id="reset">Reset</div>
-    <div class="centerText" id="sessionControl">up | time | down</div>
-    <div class="centerText" id="breakControl">up | time | down</div>
+    <div class="centerText" id="play">
+      <img src="assets/tri.png" class="triPointRight" id="playButton">
+    </div>
+    <div class="centerText" id="reset">
+      <img src="assets/reset.png" class="triPointRight" id="resetButton">
+    </div>
+
+    <div class="centerText bottomControls" id="sessionControl">
+      <img src="assets/tri.png" class="triPointUp" height="32" width="32" id="sessionUpButton">
+      <span id="sessionSelectorText">25</span>
+      <img src="assets/tri.png" class="triPointDown" height="32" width="32" id="sessionDownButton">
+    </div>
+
+    <div class="centerText bottomControls" id="breakControl">
+      <img src="assets/tri.png" class="triPointUp" height="32" width="32" id="breakUpButton">
+      <span id="breakSelectorText">5</span>
+      <img src="assets/tri.png" class="triPointDown" height="32" width="32" id="breakDownButton">
+    </div>
   </div>
+  <script src="pomodoro.js", type="text/javascript"></script>
 </html>

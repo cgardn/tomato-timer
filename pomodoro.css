@@ -57,6 +57,25 @@
   margin-left: 10px;
 }
 
+.bottomControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.3em;
+}
+
 .centerText {
   text-align: center;
+}
+
+.triPointRight {
+  transform: rotate(90deg);
+}
+
+.triPointUp {
+  transform: rotate(0deg);
+}
+
+.triPointDown {
+  transform: rotate(180deg);
 }
