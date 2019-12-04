@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+  font-family: Orbitron, monospace;
+}
+
+#content {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "face face"
+    "play reset"
+    "sessionControl breakControl";
+  margin-top: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
+  justify-content: center;
+  grid-row-gap: 10px;
+}
+
+#title {
+  grid-area: title;
+  background-color: #999;
+  width: fit-content(500px);
+  text-align: center;
+  font-size: 3em;
+}
+
+#play {
+  grid-area: play;
+  background-color: #666abc;
+  width: fit-content(100%);
+}
+
+#reset {
+  grid-area: reset;
+  background-color: #666abc;
+  width: fit-content(100%)%;
+}
+
+#clock-face {
+  grid-area: face;
+  font-size: 8em;
+  background-color: #777;
+  width: fit-content(500px);
+  padding: 50px;
+} 
+
+#sessionControl {
+  grid-area: sessionControl;
+  background-color: #888;
+  margin-right: 10px;
+}
+
+#breakControl {
+  grid-area: breakControl;
+  background-color: #888;
+  margin-left: 10px;
+}
+
+.centerText {
+  text-align: center;
+}
