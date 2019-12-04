@@ -1,5 +1,6 @@
-let clockFace = document.querySelector("#clock-face")
-let timerState = "pause"
+let clockFace = document.querySelector("#clock-face");
+let playButton = document.querySelector("#playButton");
+let timerState = "pause";
 let timerValue = 25*60;
 let sessionValue = 25;
 let breakValue = 5;
@@ -12,14 +13,26 @@ document.querySelector("#breakUpButton").addEventListener('click', () => {change
 document.querySelector("#breakDownButton").addEventListener('click', () => {changeBreak(-1)});
 
 function setTimerState(newState) {
-  timerState = newState
+  timerState = newState;
+  if (timerState == "play") {
+    playButton.src = './assets/pause.png';
+    playButton.classList.toggle('triPointRight');
+  } else if (timerState == "pause") {
+    playButton.src = './assets/tri.png';
+    playButton.classList.toggle('triPointRight');
+  }
 }
 
 function getTimerState() {
-  return timerState
+  return timerState;
 }
 
 function handlePlay() {
+  if (getTimerState() == "play") {
+    setTimerState("pause");
+  } else if (getTimerState() == "pause") {
+    setTimerState("play");
+  }
 }
 
 function handleReset() {
