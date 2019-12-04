@@ -6,6 +6,7 @@ let sessionValue = 25;
 let breakValue = 5;
 
 let timerID;
+let timerMode = "session";
 
 document.querySelector("#playButton").addEventListener('click', handlePlay);
 document.querySelector("#resetButton").addEventListener('click', handleReset);
@@ -29,6 +30,25 @@ function setTimerState(newState) {
 
 function getTimerState() {
   return timerState;
+}
+
+function setTimerMode(newMode) {
+  timerMode = newMode;
+}
+
+function getTimerMode() {
+  return timerMode;
+}
+
+function toggleMode() {
+  if (getTimerMode() == 'session') {
+    setTimerMode('break');
+    timerValue = breakValue*60;
+  } else if (getTimerMode() == 'break') {
+    setTimerMode('session');
+    timerValue = sessionValue*60;
+  }
+  updateDisplay();
 }
 
 function handlePlay() {
@@ -80,6 +100,6 @@ function timer_tick() {
   timerValue -= 1;
   updateDisplay();
   if (timerValue <= 0) {
-    stop_timer()
+    toggleMode();
   }
 }
