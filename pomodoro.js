@@ -15,15 +15,16 @@ document.querySelector("#sessionDownButton").addEventListener('click', () => {ch
 document.querySelector("#breakUpButton").addEventListener('click', () => {changeBreak(1)});
 document.querySelector("#breakDownButton").addEventListener('click', () => {changeBreak(-1)});
 
+
 function setTimerState(newState) {
   timerState = newState;
   if (timerState == "play") {
     playButton.src = './assets/pause.png';
-    playButton.classList.toggle('triPointRight');
+    playButton.classList.remove('triPointRight');
     start_timer();
   } else if (timerState == "pause") {
     playButton.src = './assets/tri.png';
-    playButton.classList.toggle('triPointRight');
+    playButton.classList.add('triPointRight');
     stop_timer();
   }
 }
